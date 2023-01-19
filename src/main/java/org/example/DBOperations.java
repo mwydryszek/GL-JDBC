@@ -68,6 +68,7 @@ public class DBOperations {
                 log.info("Popawnie usunięto konto");
                 return true;
             }else {
+                log.info("Niepoprawne id");
                 return false;
             }
 

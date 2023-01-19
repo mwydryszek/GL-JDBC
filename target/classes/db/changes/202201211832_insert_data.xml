@@ -8,9 +8,9 @@
 
 
         <insert tableName="ADDRESS">
-            <column name="Street" value="Morska"/>
-            <column name="City" value="Koszalin"/>
-            <column name="Country" value="Poland"/>
+            <column name="street" value="Morska"/>
+            <column name="city" value="Koszalin"/>
+            <column name="country" value="Poland"/>
         </insert>
 
         <insert tableName="CUSTOMER">
@@ -21,18 +21,18 @@
         </insert>
 
         <insert tableName="ACCOUNT">
-            <column name="Type" value="Salary Account"/>
-            <column name="Balance" value="300"/>
+            <column name="type" value="Salary Account"/>
+            <column name="balance" value="300"/>
         </insert>
 
         <insert tableName="ACCOUNT">
-            <column name="Type" value="Saving Account"/>
-            <column name="Balance" value="500"/>
+            <column name="type" value="Saving Account"/>
+            <column name="balance" value="500"/>
         </insert>
 
         <insert tableName="ACCOUNT">
-            <column name="Type" value="Currency Account"/>
-            <column name="Balance" value="800"/>
+            <column name="type" value="Currency Account"/>
+            <column name="balance" value="800"/>
         </insert>
 
         <insert tableName="ACCOUNT_CUSTOMER">
@@ -43,7 +43,8 @@
         <insert tableName="TRANSACTION">
             <column name="id_account" value="1"/>
             <column name="amount" value="500"/>
-            <column name="date" value="2023-01-16"/>
+            <column name="transaction_date" value="2023-01-16"/>
+            <column name="id_account" value="1"/>
         </insert>
 
     </changeSet>

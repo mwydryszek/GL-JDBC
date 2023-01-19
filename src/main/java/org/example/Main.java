@@ -27,7 +27,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        useLiquibase();
+        runLiquibase();
 
         final Scanner scanner = new Scanner(System.in);
 
@@ -153,7 +153,7 @@ public class Main {
 
     }
 
-    private static void useLiquibase() {
+    private static void runLiquibase() {
 
         try(Connection conn = DriverManager.getConnection(DB_URL,USER,PASS)) {
 
