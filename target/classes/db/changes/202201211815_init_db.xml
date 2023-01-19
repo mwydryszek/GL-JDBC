@@ -1,0 +1,62 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet author="mwydryszek" id="1">
+
+        <createTable tableName="ADDRESS">
+            <column name="id_address" type="Integer" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="address_PK"/>
+            </column>
+            <column name="Street" type="VARCHAR(50)"/>
+            <column name="City" type="VARCHAR(50)"/>
+            <column name="Country" type="VARCHAR(50)"/>
+        </createTable>
+
+        <createTable tableName="CUSTOMER">
+            <column name="id_customer" type="Integer" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="customer_PK"/>
+            </column>
+            <column name="First_name" type="Varchar(20)"/>
+            <column name="Last_name" type="Varchar(32)"/>
+            <column name="Email" type="Varchar(60)"/>
+            <column name="Id_Address" type="Integer">
+                <constraints nullable="false" foreignKeyName="fk_Address_Customer" references="ADDRESS(id_address)"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="ACCOUNT">
+            <column name="id_account" type="Integer" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="account_PK"/>
+            </column>
+            <column name="Type" type="VARCHAR(20)"/>
+            <column name="Balance" type="DECIMAL"/>
+        </createTable>
+
+        <createTable tableName="ACCOUNT_CUSTOMER">
+            <column name="id" type="Integer" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="customer_account_PK"/>
+            </column>
+            <column name="id_customer" type="Integer">
+                <constraints nullable="false" foreignKeyName="fk_account_customer_customer" references="CUSTOMER(id_customer)"/>
+            </column>
+            <column name="id_account" type="Integer">
+                <constraints nullable="false" foreignKeyName="fk_account_customer_account" references="ACCOUNT(id_account)"/>
+            </column>
+        </createTable>
+
+        <createTable tableName="TRANSACTION">
+            <column name="id_transaction" type="Integer" autoIncrement="true">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="transaction_PK"/>
+            </column>
+            <column name="Amount" type="DECIMAL"/>
+            <column name="Transaction_date" type="DATE"/>
+            <column name="Id_Account" type="Integer">
+                <constraints nullable="false" foreignKeyName="account_transaction_FK" references="ACCOUNT(id_account)"/>
+            </column>
+        </createTable>
+
+    </changeSet>
+</databaseChangeLog>
